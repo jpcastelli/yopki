@@ -1,22 +1,23 @@
 import { NextResponse } from 'next/server';
 
 type Neighborhood = {
-  title: string;
-  gps_coordinates: {
-    latitude: number;
-    longitude: number;
-  }
+    title: string;
+    gps_coordinates: {
+      latitude: number;
+      longitude: number;
+    }
 };
 
 type Shop = {
-  title: string;
-  gps_coordinates: {
-    latitude: number;
-    longitude: number;
-  }
-  rating: number;
-  reviews: number;
-  address: string;
+    title: string
+    gps_coordinates: {
+      latitude: number
+      longitude: number
+    }
+    rating: number
+    reviews: number
+    address: string
+    website: string
 };
 
 type CoffeeShops = {
@@ -68,6 +69,7 @@ async function getCoffeeShopsByNeighborhood(neighborhood: string) {
     rating: shop.rating ?? 0,
     reviews: shop.reviews ?? 0,
     address: shop.address || "No address available",
+    website: shop.website || "No website available",
   }));
 
   return shops;
