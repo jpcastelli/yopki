@@ -14,10 +14,13 @@ type Shop = {
       latitude: number
       longitude: number
     }
+    description: string
     rating: number
     reviews: number
     address: string
     website: string
+    reviews_link: string
+    photos_link: string
 };
 
 type CoffeeShops = {
@@ -55,24 +58,27 @@ async function getNeighborhoodsByCity(city: string, totalNeighborhoods = 2): Pro
 }
 
 async function getCoffeeShopsByNeighborhood(neighborhood: string) {
-  const url = `${process.env.SERPAPI_HOST}/search.json?engine=google_maps&q=coffee+shops+in+${neighborhood}&api_key=${process.env.SERPAPI_KEY}`;
-  const response = await fetch(url);
-  const data = await response.json();
-  const shop : Shop[] =[]
+    const url = `${process.env.SERPAPI_HOST}/search.json?engine=google_maps&q=coffee+shops+in+${neighborhood}&api_key=${process.env.SERPAPI_KEY}`;
+    const response = await fetch(url);
+    const data = await response.json();
+    const shop : Shop[] =[]
 
-  const shops =  data.local_results.slice(0, 2).map((shop: Shop) => ({
-    title: shop.title,
-    gps_coordinates: {
-      latitude: shop.gps_coordinates?.latitude ?? 0,
-      longitude: shop.gps_coordinates?.longitude ?? 0,
-    },
-    rating: shop.rating ?? 0,
-    reviews: shop.reviews ?? 0,
-    address: shop.address || "No address available",
-    website: shop.website || "No website available",
-  }));
+    const shops =  data.local_results.slice(0, 2).map((shop: Shop) => ({
+        title: shop.title,
+        gps_coordinates: {
+          latitude: shop.gps_coordinates?.latitude ?? 0,
+          longitude: shop.gps_coordinates?.longitude ?? 0,
+        },
+        description: shop.description || "No description available",
+        rating: shop.rating ?? 0,
+        reviews: shop.reviews ?? 0,
+        address: shop.address || "No address available",
+        website: shop.website || "No website available",
+        reviews_link: shop.reviews_link || "No reviews link available",
+        photos_link: shop.photos_link || "No photos link available",
+    }));
 
-  return shops;
+    return shops;
   }
 
 
