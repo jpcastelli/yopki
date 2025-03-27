@@ -16,10 +16,10 @@ async function getActivitiesByDestination(destination: string, totalActivities =
 
     const openAiData = await openAiResponse.json();
     const activities = openAiData.choices[0]?.message?.content?.split('\n') || [];
-    const parsedActivities = activities.map(activity => activity.match(/\*\*([^*]+)\*\*/g))
+    const parsedActivities = activities.map((activity : string) => activity.match(/\*\*([^*]+)\*\*/g))
         .flat()
         .filter(Boolean)
-        .map(activity => activity.replace(/\*\*/g, ''));
+        .map((activity : string) => activity.replace(/\*\*/g, ''));
 
     return parsedActivities;
 }

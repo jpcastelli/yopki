@@ -69,7 +69,7 @@ async function getAirportCodesByOriginAndDestination(origin: string, destination
     });
 
     const data = await response.json();
-    const airports = data.choices[0]?.message?.content?.split(",").map(code => code.trim()) || [];
+    const airports = data.choices[0]?.message?.content?.split(",").map((code : string) => code.trim()) || [];
 
     return airports;
 }
