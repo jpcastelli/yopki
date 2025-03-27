@@ -53,7 +53,7 @@ export type YopkiOneTripFlightParams = {
     destination: string
     departureDate: string
     returnDate: string
-    adults: Number
+    adults: number
 }
 
 export type YopkiOneTripFlight = {

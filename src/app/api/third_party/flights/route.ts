@@ -4,7 +4,7 @@ import type { YopkiOneTripFlightParams, FlightResponse, OneTripFlightResponse, Y
 
 async function getOneTripFlights(flightParams: YopkiOneTripFlightParams): Promise<OneTripFlightResponse> {
     let departureToken: string | undefined;
-    let oneTripFlight: OneTripFlightResponse = {
+    const oneTripFlight: OneTripFlightResponse = {
         DepartureFlight: {} as YopkiOneTripFlight,
         ReturnFlight: {} as YopkiOneTripFlight
     };
