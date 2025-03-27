@@ -24,7 +24,7 @@ async function getActivitiesByDestination(destination: string, totalActivities =
     return parsedActivities;
 }
 
-async function getActivitiesDetailsByActivityAndDestination(destination: string, activities: string[]): Promise<ActivityDetails[]> {
+async function getActivitiesDetailsByActivityAndDestination(destination: string, activities: string[]): Promise<Activity[]> {
     const parsedActivityDetails: ActivityDetails[] = [];
     let index = 0;
     await Promise.all(activities.map(async (activity) => {
@@ -34,7 +34,25 @@ async function getActivitiesDetailsByActivityAndDestination(destination: string,
         index++;
     }));
 
-    return parsedActivityDetails;
+    let details: Activity[] = [];
+    parsedActivityDetails.forEach(detail => { 
+          if (detail.local_results.length > 0) {
+          const activity = detail.local_results[0];
+          details.push({
+          title: activity.title,
+          description: activity.description || "No description available",
+          gps_coordinates: {
+              latitude: activity.gps_coordinates?.latitude ?? 0,
+              longitude: activity.gps_coordinates?.longitude ?? 0,
+          },
+          rating: activity.rating ?? 0,
+          reviews: activity.reviews ?? 0,
+          address: activity.address || "No address available",
+          });
+          }
+      });
+
+    return details;
 }
 
 export async function GET(req: Request) {
@@ -55,23 +73,5 @@ export async function GET(req: Request) {
         return NextResponse.json({ error: 'No activity details found' }, { status: 404 });
     }
 
-      let details: Activity[] = [];
-      activityDetails.forEach(detail => { 
-          if (detail.local_results.length > 0) {
-          const activity = detail.local_results[0];
-          details.push({
-          title: activity.title,
-          description: activity.description || "No description available",
-          gps_coordinates: {
-              latitude: activity.gps_coordinates?.latitude ?? 0,
-              longitude: activity.gps_coordinates?.longitude ?? 0,
-          },
-          rating: activity.rating ?? 0,
-          reviews: activity.reviews ?? 0,
-          address: activity.address || "No address available",
-          });
-          }
-      });
-
-    return NextResponse.json({details});
+    return NextResponse.json({activityDetails});
 }
