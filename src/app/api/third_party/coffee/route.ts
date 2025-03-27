@@ -1,8 +1,8 @@
 import { NextResponse } from 'next/server';
-import { CoffeeShops, Neighborhood, Shop } from './types';
+import { Neighborhood, Shop } from './types';
 
 async function getNeighborhoodsByCity(city: string, totalNeighborhoods = 2): Promise<string[]> {
-  let neighborhoodsList: string[] = [];
+  const neighborhoodsList: string[] = [];
 
   const url = `${process.env.SERPAPI_HOST}/search.json?engine=google_maps&q=neighborhoods+in+${city}&api_key=${process.env.SERPAPI_KEY}`;
 
@@ -34,7 +34,6 @@ async function getCoffeeShopsByNeighborhood(neighborhood: string) {
     const url = `${process.env.SERPAPI_HOST}/search.json?engine=google_maps&q=coffee+shops+in+${neighborhood}&api_key=${process.env.SERPAPI_KEY}`;
     const response = await fetch(url);
     const data = await response.json();
-    const shop : Shop[] =[]
 
     const shops =  data.local_results.slice(0, 2).map((shop: Shop) => ({
         title: shop.title,
@@ -56,7 +55,6 @@ async function getCoffeeShopsByNeighborhood(neighborhood: string) {
 
 
   export async function GET(req: Request) {
-    let coffeeShops: CoffeeShops[] = [];
     const { searchParams } = new URL(req.url);
     const destination = searchParams.get('destination');
 
