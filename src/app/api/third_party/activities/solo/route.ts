@@ -10,7 +10,7 @@ async function getActivitiesByDestination(destination: string, totalActivities =
         },
         body: JSON.stringify({
             model: "gpt-4-turbo",
-            messages: [{ role: "system", content: `Suggest three solo activities in ${destination}.` }],
+            messages: [{ role: "system", content: `Suggest ${totalActivities} solo activities in ${destination}.` }],
         }),
     });
 
@@ -34,7 +34,7 @@ async function getActivitiesDetailsByActivityAndDestination(destination: string,
         index++;
     }));
 
-    let details: Activity[] = [];
+    const details: Activity[] = [];
     parsedActivityDetails.forEach(detail => { 
           if (detail.local_results.length > 0) {
           const activity = detail.local_results[0];
