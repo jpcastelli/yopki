@@ -10,11 +10,11 @@ Requirements to run locally
 1. Configure the necessary environment variables
 ```bash
 # Create an .env.local file adding these variable
-SERPAPI_HOST=https://serpapi.com
-OPENAI_HOST=https://api.openai.com
+SERPAPI_HOST=
+OPENAI_HOST=
 SERPAPI_KEY=
 OPENAI_API_KEY=
-NEXT_PUBLIC_BASE_URL=http://localhost:3000
+NEXT_PUBLIC_BASE_URL=
 ```
 2. Next step would be to setup the environment
 ```bash
