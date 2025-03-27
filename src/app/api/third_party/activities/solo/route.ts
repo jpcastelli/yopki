@@ -1,20 +1,5 @@
 import { NextResponse } from 'next/server';
-
-type Activity = {
-    title: string;
-    description: string;
-    gps_coordinates: {
-        latitude: number;
-        longitude: number;
-    };
-    rating: number;
-    reviews: number;
-    address: string;
-};
-
-type ActivityDetails = {
-    local_results: Activity[];
-};
+import { Activity, ActivityDetails } from './types';
 
 async function getActivitiesByDestination(destination: string, totalActivities = 3): Promise<string[]> {
     const openAiResponse = await fetch(`${process.env.OPENAI_HOST}/v1/chat/completions`, {
