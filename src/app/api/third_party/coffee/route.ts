@@ -1,32 +1,5 @@
 import { NextResponse } from 'next/server';
-
-type Neighborhood = {
-    title: string;
-    gps_coordinates: {
-      latitude: number;
-      longitude: number;
-    }
-};
-
-type Shop = {
-    title: string
-    gps_coordinates: {
-      latitude: number
-      longitude: number
-    }
-    description: string
-    rating: number
-    reviews: number
-    address: string
-    website: string
-    reviews_link: string
-    photos_link: string
-};
-
-type CoffeeShops = {
-  neighborhood: string;
-  shops: Shop[];
-}
+import { CoffeeShops, Neighborhood, Shop } from './types';
 
 async function getNeighborhoodsByCity(city: string, totalNeighborhoods = 2): Promise<string[]> {
   let neighborhoodsList: string[] = [];
