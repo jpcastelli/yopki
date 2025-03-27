@@ -1,4 +1,4 @@
-## Yopki Travel Itinerary
+# Yopki Travel Itinerary
 This project is an application that based on certain parameters(origin, destination, departure/return dates) provides a basic itinerary on what to do in the desired destination including flights information.
 
 This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
@@ -41,3 +41,7 @@ Open [http://localhost:3000](http://localhost:3000) with your browser to see the
 For better documentation and easier use feel free to install Postman https://www.postman.com/downloads/
 
 Once installed you can import Yopki.postman_collection.json that resides inside the root folder to check all the available endpoints.
+
+## Pending Improvements
+- Use a cache method for quicker API responses also to prevent timeouts for long concurrent calls.
+- Improve API services to abstract third party services(SERP API, OpenAI) by applying design patterns.
