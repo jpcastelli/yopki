@@ -1,0 +1,573 @@
+{
+	"info": {
+		"_postman_id": "b3db47b7-dd41-476d-9b32-cea5236deb6e",
+		"name": "Yopki",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "11853208"
+	},
+	"item": [
+		{
+			"name": "External API's",
+			"item": [
+				{
+					"name": "SERPAPI",
+					"request": {
+						"method": "GET",
+						"header": []
+					},
+					"response": []
+				},
+				{
+					"name": "OpenAI",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "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",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"model\": \"gpt-4-turbo\",\n    \"messages\": [\n        {\n            \"role\": \"system\",\n            \"content\": \"You are an assistant that provides airport codes for cities.\",\n        },\n        {\n            \"role\": \"user\",\n            \"content\": \"What are the main airport codes for Los Angeles, Provide only IATA codes, separated by commas.\"\n        }\n    ]\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "https://api.openai.com/v1/chat/completions",
+							"protocol": "https",
+							"host": [
+								"api",
+								"openai",
+								"com"
+							],
+							"path": [
+								"v1",
+								"chat",
+								"completions"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Coffee Shops",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:3000/api/third_party/coffee?destination=Los+Angeles&gl=us&hl=en&currency=USD&type=1",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"api",
+						"third_party",
+						"coffee"
+					],
+					"query": [
+						{
+							"key": "destination",
+							"value": "Los+Angeles"
+						},
+						{
+							"key": "gl",
+							"value": "us"
+						},
+						{
+							"key": "hl",
+							"value": "en"
+						},
+						{
+							"key": "currency",
+							"value": "USD"
+						},
+						{
+							"key": "type",
+							"value": "1"
+						}
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "Coffee Shops",
+					"originalRequest": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:3000/api/third_party/coffee?destination=Los+Angeles&gl=us&hl=en&currency=USD&type=1",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"api",
+								"third_party",
+								"coffee"
+							],
+							"query": [
+								{
+									"key": "destination",
+									"value": "Los+Angeles"
+								},
+								{
+									"key": "gl",
+									"value": "us"
+								},
+								{
+									"key": "hl",
+									"value": "en"
+								},
+								{
+									"key": "currency",
+									"value": "USD"
+								},
+								{
+									"key": "type",
+									"value": "1"
+								}
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "vary",
+							"value": "RSC, Next-Router-State-Tree, Next-Router-Prefetch, Next-Router-Segment-Prefetch"
+						},
+						{
+							"key": "content-type",
+							"value": "application/json"
+						},
+						{
+							"key": "Date",
+							"value": "Thu, 27 Mar 2025 13:34:18 GMT"
+						},
+						{
+							"key": "Connection",
+							"value": "keep-alive"
+						},
+						{
+							"key": "Keep-Alive",
+							"value": "timeout=5"
+						},
+						{
+							"key": "Transfer-Encoding",
+							"value": "chunked"
+						}
+					],
+					"cookie": [],
+					"body": "[\n    {\n        \"neighborhood\": \"Northeast Los Angeles\",\n        \"shops\": [\n            {\n                \"title\": \"Lumen Coffee\",\n                \"gps_coordinates\": {\n                    \"latitude\": 34.1055902,\n                    \"longitude\": -118.2013578\n                },\n                \"description\": \"No description available\",\n                \"rating\": 4.9,\n                \"reviews\": 54,\n                \"address\": \"5025 N Figueroa St. Café Suite, Los Angeles, CA 90042\",\n                \"website\": \"No website available\",\n                \"reviews_link\": \"https://serpapi.com/search.json?data_id=0x80c2c515fb7a0fa1%3A0x1342e0a778ef8530&engine=google_maps_reviews&hl=en\",\n                \"photos_link\": \"https://serpapi.com/search.json?data_id=0x80c2c515fb7a0fa1%3A0x1342e0a778ef8530&engine=google_maps_photos&hl=en\"\n            },\n            {\n                \"title\": \"Tierra Mia Coffee\",\n                \"gps_coordinates\": {\n                    \"latitude\": 34.0729451,\n                    \"longitude\": -118.2186066\n                },\n                \"description\": \"Latin-inspired coffee drinks & pastries. Stylish chain serving Latin-inspired coffee drinks made with house-roasted beans, plus pastries.\",\n                \"rating\": 4.5,\n                \"reviews\": 831,\n                \"address\": \"2108 N Broadway, Los Angeles, CA 90031\",\n                \"website\": \"http://www.tierramiacoffee.com/\",\n                \"reviews_link\": \"https://serpapi.com/search.json?data_id=0x80c2c75b64ed3def%3A0x4f85ea3fa0e5c2e7&engine=google_maps_reviews&hl=en\",\n                \"photos_link\": \"https://serpapi.com/search.json?data_id=0x80c2c75b64ed3def%3A0x4f85ea3fa0e5c2e7&engine=google_maps_photos&hl=en\"\n            }\n        ]\n    },\n    {\n        \"neighborhood\": \"Los Angeles\",\n        \"shops\": [\n            {\n                \"title\": \"Alchemist Coffee Project\",\n                \"gps_coordinates\": {\n                    \"latitude\": 34.060227,\n                    \"longitude\": -118.29140679999999\n                },\n                \"description\": \"New Orleans-style coffee specialist. Sleek coffee-focused spot also offering baked goods & bulk beans out of a New Orleans-style cafe.\",\n                \"rating\": 4.5,\n                \"reviews\": 876,\n                \"address\": \"698 S Vermont Ave Ste 103, Los Angeles, CA 90005\",\n                \"website\": \"http://alchemistcp.com/\",\n                \"reviews_link\": \"https://serpapi.com/search.json?data_id=0x80c2c779722c259d%3A0x5931d9a6137e5907&engine=google_maps_reviews&hl=en\",\n                \"photos_link\": \"https://serpapi.com/search.json?data_id=0x80c2c779722c259d%3A0x5931d9a6137e5907&engine=google_maps_photos&hl=en\"\n            },\n            {\n                \"title\": \"Urth Caffe\",\n                \"gps_coordinates\": {\n                    \"latitude\": 34.041989199999996,\n                    \"longitude\": -118.23546089999999\n                },\n                \"description\": \"Organic coffee plus American cafe fare. Bustling chain of coffeehouses serving an extensive American menu with counter service and patio seating.\",\n                \"rating\": 4.5,\n                \"reviews\": 5287,\n                \"address\": \"459 S Hewitt St, Los Angeles, CA 90013\",\n                \"website\": \"https://www.urthcaffe.com/\",\n                \"reviews_link\": \"https://serpapi.com/search.json?data_id=0x80c2c63b819c5a17%3A0x560b879100a3bb9f&engine=google_maps_reviews&hl=en\",\n                \"photos_link\": \"https://serpapi.com/search.json?data_id=0x80c2c63b819c5a17%3A0x560b879100a3bb9f&engine=google_maps_photos&hl=en\"\n            }\n        ]\n    }\n]"
+				}
+			]
+		},
+		{
+			"name": "Flights",
+			"request": {
+				"auth": {
+					"type": "noauth"
+				},
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:3000/api/third_party/flights?gl=us&hl=en&currency=USD&type=1&return_date=2025-06-06&adults=1&origin=JFK&destination=LAX&departure_date=2025-06-03",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"api",
+						"third_party",
+						"flights"
+					],
+					"query": [
+						{
+							"key": "gl",
+							"value": "us"
+						},
+						{
+							"key": "hl",
+							"value": "en"
+						},
+						{
+							"key": "currency",
+							"value": "USD"
+						},
+						{
+							"key": "type",
+							"value": "1"
+						},
+						{
+							"key": "return_date",
+							"value": "2025-06-06"
+						},
+						{
+							"key": "adults",
+							"value": "1"
+						},
+						{
+							"key": "origin",
+							"value": "JFK"
+						},
+						{
+							"key": "destination",
+							"value": "LAX"
+						},
+						{
+							"key": "departure_date",
+							"value": "2025-06-03"
+						}
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "Flights",
+					"originalRequest": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:3000/api/third_party/flights?origin=JFK&destination=LAX&gl=us&hl=en&currency=USD&type=1&departure_date=2025-06-03&return_date=2025-06-06&adults=1",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"api",
+								"third_party",
+								"flights"
+							],
+							"query": [
+								{
+									"key": "origin",
+									"value": "JFK"
+								},
+								{
+									"key": "destination",
+									"value": "LAX"
+								},
+								{
+									"key": "gl",
+									"value": "us"
+								},
+								{
+									"key": "hl",
+									"value": "en"
+								},
+								{
+									"key": "currency",
+									"value": "USD"
+								},
+								{
+									"key": "type",
+									"value": "1"
+								},
+								{
+									"key": "departure_date",
+									"value": "2025-06-03"
+								},
+								{
+									"key": "return_date",
+									"value": "2025-06-06"
+								},
+								{
+									"key": "adults",
+									"value": "1"
+								}
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "vary",
+							"value": "RSC, Next-Router-State-Tree, Next-Router-Prefetch, Next-Router-Segment-Prefetch"
+						},
+						{
+							"key": "content-type",
+							"value": "application/json"
+						},
+						{
+							"key": "Date",
+							"value": "Thu, 27 Mar 2025 13:33:44 GMT"
+						},
+						{
+							"key": "Connection",
+							"value": "keep-alive"
+						},
+						{
+							"key": "Keep-Alive",
+							"value": "timeout=5"
+						},
+						{
+							"key": "Transfer-Encoding",
+							"value": "chunked"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"DepartureFlight\": {\n        \"arrival_airport\": {\n            \"name\": \"Los Angeles International Airport\",\n            \"id\": \"LAX\",\n            \"time\": \"2025-06-03 19:57\"\n        },\n        \"departure_airport\": {\n            \"name\": \"John F. Kennedy International Airport\",\n            \"id\": \"JFK\",\n            \"time\": \"2025-06-03 16:30\"\n        },\n        \"price\": 272\n    },\n    \"ReturnFlight\": {\n        \"arrival_airport\": {\n            \"name\": \"John F. Kennedy International Airport\",\n            \"id\": \"JFK\",\n            \"time\": \"2025-06-06 23:59\"\n        },\n        \"departure_airport\": {\n            \"name\": \"Los Angeles International Airport\",\n            \"id\": \"LAX\",\n            \"time\": \"2025-06-06 15:25\"\n        },\n        \"price\": 272\n    }\n}"
+				}
+			]
+		},
+		{
+			"name": "Solo Activities",
+			"request": {
+				"auth": {
+					"type": "noauth"
+				},
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:3000/api/third_party/activities/solo?destination=Los+Angeles",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"api",
+						"third_party",
+						"activities",
+						"solo"
+					],
+					"query": [
+						{
+							"key": "destination",
+							"value": "Los+Angeles"
+						}
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "Solo Activities",
+					"originalRequest": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:3000/api/third_party/activities/solo?destination=Los+Angeles",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"api",
+								"third_party",
+								"activities",
+								"solo"
+							],
+							"query": [
+								{
+									"key": "destination",
+									"value": "Los+Angeles"
+								}
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "vary",
+							"value": "RSC, Next-Router-State-Tree, Next-Router-Prefetch, Next-Router-Segment-Prefetch"
+						},
+						{
+							"key": "content-type",
+							"value": "application/json"
+						},
+						{
+							"key": "Date",
+							"value": "Thu, 27 Mar 2025 13:34:44 GMT"
+						},
+						{
+							"key": "Connection",
+							"value": "keep-alive"
+						},
+						{
+							"key": "Keep-Alive",
+							"value": "timeout=5"
+						},
+						{
+							"key": "Transfer-Encoding",
+							"value": "chunked"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"activityDetails\": [\n        {\n            \"title\": \"Griffith Park Trails\",\n            \"description\": \"No description available\",\n            \"gps_coordinates\": {\n                \"latitude\": 34.121845,\n                \"longitude\": -118.29665\n            },\n            \"rating\": 4.8,\n            \"reviews\": 601,\n            \"address\": \"2715 N Vermont Canyon Rd\"\n        },\n        {\n            \"title\": \"The Getty\",\n            \"description\": \"No description available\",\n            \"gps_coordinates\": {\n                \"latitude\": 34.077343,\n                \"longitude\": -118.47327\n            },\n            \"rating\": 4.8,\n            \"reviews\": 33000,\n            \"address\": \"1200 Getty Center Dr\"\n        },\n        {\n            \"title\": \"The Broad\",\n            \"description\": \"No description available\",\n            \"gps_coordinates\": {\n                \"latitude\": 34.0545,\n                \"longitude\": -118.25018\n            },\n            \"rating\": 4.7,\n            \"reviews\": 16000,\n            \"address\": \"221 S Grand Ave\"\n        }\n    ]\n}"
+				}
+			]
+		},
+		{
+			"name": "Itinerary",
+			"request": {
+				"auth": {
+					"type": "noauth"
+				},
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:3000/api/itinerary?origin=JFK&destination=Los+Angeles&gl=us&hl=en&currency=USD&type=1&departure_date=2025-05-03&return_date=2025-05-20&adults=1",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"api",
+						"itinerary"
+					],
+					"query": [
+						{
+							"key": "origin",
+							"value": "JFK"
+						},
+						{
+							"key": "destination",
+							"value": "Los+Angeles"
+						},
+						{
+							"key": "gl",
+							"value": "us"
+						},
+						{
+							"key": "hl",
+							"value": "en"
+						},
+						{
+							"key": "currency",
+							"value": "USD"
+						},
+						{
+							"key": "type",
+							"value": "1"
+						},
+						{
+							"key": "departure_date",
+							"value": "2025-05-03"
+						},
+						{
+							"key": "return_date",
+							"value": "2025-05-20"
+						},
+						{
+							"key": "adults",
+							"value": "1"
+						}
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "Itinerary",
+					"originalRequest": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:3000/api/itinerary?origin=New+York&destination=Los+Angeles&gl=us&hl=en&currency=USD&type=1&departure_date=2025-05-03&return_date=2025-05-20&adults=1",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"api",
+								"itinerary"
+							],
+							"query": [
+								{
+									"key": "origin",
+									"value": "New+York"
+								},
+								{
+									"key": "destination",
+									"value": "Los+Angeles"
+								},
+								{
+									"key": "gl",
+									"value": "us"
+								},
+								{
+									"key": "hl",
+									"value": "en"
+								},
+								{
+									"key": "currency",
+									"value": "USD"
+								},
+								{
+									"key": "type",
+									"value": "1"
+								},
+								{
+									"key": "departure_date",
+									"value": "2025-05-03"
+								},
+								{
+									"key": "return_date",
+									"value": "2025-05-20"
+								},
+								{
+									"key": "adults",
+									"value": "1"
+								}
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "vary",
+							"value": "RSC, Next-Router-State-Tree, Next-Router-Prefetch, Next-Router-Segment-Prefetch"
+						},
+						{
+							"key": "content-type",
+							"value": "application/json"
+						},
+						{
+							"key": "Date",
+							"value": "Thu, 27 Mar 2025 15:18:14 GMT"
+						},
+						{
+							"key": "Connection",
+							"value": "keep-alive"
+						},
+						{
+							"key": "Keep-Alive",
+							"value": "timeout=5"
+						},
+						{
+							"key": "Transfer-Encoding",
+							"value": "chunked"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"itinerary\": {\n        \"flights\": {\n            \"DepartureFlight\": {\n                \"arrival_airport\": {\n                    \"name\": \"Los Angeles International Airport\",\n                    \"id\": \"LAX\",\n                    \"time\": \"2025-05-03 18:42\"\n                },\n                \"departure_airport\": {\n                    \"name\": \"John F. Kennedy International Airport\",\n                    \"id\": \"JFK\",\n                    \"time\": \"2025-05-03 15:25\"\n                },\n                \"price\": 292\n            },\n            \"ReturnFlight\": {\n                \"arrival_airport\": {\n                    \"name\": \"John F. Kennedy International Airport\",\n                    \"id\": \"JFK\",\n                    \"time\": \"2025-05-20 23:57\"\n                },\n                \"departure_airport\": {\n                    \"name\": \"Los Angeles International Airport\",\n                    \"id\": \"LAX\",\n                    \"time\": \"2025-05-20 15:29\"\n                },\n                \"price\": 292\n            }\n        },\n        \"coffees\": [\n            {\n                \"neighborhood\": \"Northeast Los Angeles\",\n                \"shops\": [\n                    {\n                        \"title\": \"Antigua\",\n                        \"gps_coordinates\": {\n                            \"latitude\": 34.0873517,\n                            \"longitude\": -118.21744919999999\n                        },\n                        \"description\": \"Corner coffeehouse with an artsy vibe. Neighborhood coffee shop draws locals for coffee & sandwiches in a vibrant, art-filled space.\",\n                        \"rating\": 4.7,\n                        \"reviews\": 200,\n                        \"address\": \"3400 N Figueroa St, Los Angeles, CA 90065\",\n                        \"website\": \"No website available\",\n                        \"reviews_link\": \"https://serpapi.com/search.json?data_id=0x80c2c69081c86515%3A0xa8eb1f0f85bbbdc&engine=google_maps_reviews&hl=en\",\n                        \"photos_link\": \"https://serpapi.com/search.json?data_id=0x80c2c69081c86515%3A0xa8eb1f0f85bbbdc&engine=google_maps_photos&hl=en\"\n                    },\n                    {\n                        \"title\": \"Civil Coffee\",\n                        \"gps_coordinates\": {\n                            \"latitude\": 34.1095565,\n                            \"longitude\": -118.19345009999999\n                        },\n                        \"description\": \"Airy espresso bar with light bites. Bright, airy cafe offering craft coffee, espresso & pastries, plus light breakfast & lunch fare.\",\n                        \"rating\": 4.4,\n                        \"reviews\": 538,\n                        \"address\": \"5629 N Figueroa St, Los Angeles, CA 90042\",\n                        \"website\": \"http://www.civilcoffee.com/\",\n                        \"reviews_link\": \"https://serpapi.com/search.json?data_id=0x80c2c4106fffe291%3A0x75d77643115b0800&engine=google_maps_reviews&hl=en\",\n                        \"photos_link\": \"https://serpapi.com/search.json?data_id=0x80c2c4106fffe291%3A0x75d77643115b0800&engine=google_maps_photos&hl=en\"\n                    }\n                ]\n            },\n            {\n                \"neighborhood\": \"Los Angeles\",\n                \"shops\": [\n                    {\n                        \"title\": \"Alchemist Coffee Project\",\n                        \"gps_coordinates\": {\n                            \"latitude\": 34.060227,\n                            \"longitude\": -118.29140679999999\n                        },\n                        \"description\": \"New Orleans-style coffee specialist. Sleek coffee-focused spot also offering baked goods & bulk beans out of a New Orleans-style cafe.\",\n                        \"rating\": 4.5,\n                        \"reviews\": 876,\n                        \"address\": \"698 S Vermont Ave Ste 103, Los Angeles, CA 90005\",\n                        \"website\": \"http://alchemistcp.com/\",\n                        \"reviews_link\": \"https://serpapi.com/search.json?data_id=0x80c2c779722c259d%3A0x5931d9a6137e5907&engine=google_maps_reviews&hl=en\",\n                        \"photos_link\": \"https://serpapi.com/search.json?data_id=0x80c2c779722c259d%3A0x5931d9a6137e5907&engine=google_maps_photos&hl=en\"\n                    },\n                    {\n                        \"title\": \"Verve Coffee Roasters\",\n                        \"gps_coordinates\": {\n                            \"latitude\": 34.0414258,\n                            \"longitude\": -118.2327019\n                        },\n                        \"description\": \"Modern coffeehouse with artisanal blends. NorCal-originated chain for thoughtfully sourced coffee drinks in a modern space with wooden decor.\",\n                        \"rating\": 4.6,\n                        \"reviews\": 584,\n                        \"address\": \"500 Mateo St #102, Los Angeles, CA 90013\",\n                        \"website\": \"http://www.vervecoffee.com/\",\n                        \"reviews_link\": \"https://serpapi.com/search.json?data_id=0x80c2c63ce65f5f17%3A0xde68a7b895be0bb&engine=google_maps_reviews&hl=en\",\n                        \"photos_link\": \"https://serpapi.com/search.json?data_id=0x80c2c63ce65f5f17%3A0xde68a7b895be0bb&engine=google_maps_photos&hl=en\"\n                    }\n                ]\n            }\n        ],\n        \"solo-activities\": {\n            \"activityDetails\": [\n                {\n                    \"title\": \"Los Angeles County Museum of Art\",\n                    \"description\": \"No description available\",\n                    \"gps_coordinates\": {\n                        \"latitude\": 34.06393,\n                        \"longitude\": -118.35923\n                    },\n                    \"rating\": 4.6,\n                    \"reviews\": 20000,\n                    \"address\": \"5905 Wilshire Blvd\"\n                },\n                {\n                    \"title\": \"The Getty\",\n                    \"description\": \"No description available\",\n                    \"gps_coordinates\": {\n                        \"latitude\": 34.077343,\n                        \"longitude\": -118.47327\n                    },\n                    \"rating\": 4.8,\n                    \"reviews\": 33000,\n                    \"address\": \"1200 Getty Center Dr\"\n                },\n                {\n                    \"title\": \"Griffith Observatory\",\n                    \"description\": \"No description available\",\n                    \"gps_coordinates\": {\n                        \"latitude\": 34.118435,\n                        \"longitude\": -118.30039\n                    },\n                    \"rating\": 4.7,\n                    \"reviews\": 16000,\n                    \"address\": \"2800 E Observatory Rd\"\n                }\n            ]\n        }\n    }\n}"
+				}
+			]
+		}
+	]
+}
