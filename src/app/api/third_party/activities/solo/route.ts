@@ -73,5 +73,5 @@ export async function GET(req: Request) {
         return NextResponse.json({ error: 'No activity details found' }, { status: 404 });
     }
 
-    return NextResponse.json({activityDetails});
+    return NextResponse.json(activityDetails);
 }
