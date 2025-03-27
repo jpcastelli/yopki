@@ -49,10 +49,10 @@ export type FlightResponse = {
 }
 
 export type YopkiOneTripFlightParams = {
-    origin: String
-    destination: String
-    departureDate: String
-    returnDate: String
+    origin: string
+    destination: string
+    departureDate: string
+    returnDate: string
     adults: Number
 }
 
