@@ -45,3 +45,7 @@ Once installed you can import Yopki.postman_collection.json that resides inside 
 ## Pending Improvements
 - Use a cache method for quicker API responses also to prevent timeouts for long concurrent calls.
 - Improve API services to abstract third party services(SERP API, OpenAI) by applying design patterns.
+
+## Production Server in Vercel
+```bash
+https://travel-itinerary-delta.vercel.app/
