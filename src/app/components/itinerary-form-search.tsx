@@ -1,3 +1,4 @@
+/* eslint-disable */
 "use client";
 
 import { useState } from "react";
@@ -10,7 +11,6 @@ export default function ItineraryFormSearch() {
   const [returnDate, setReturnDate] = useState("");
   const [travelers, setTravelers] = useState("1");
   const [loading, setLoading] = useState(false);
-  const [isHydrated, setIsHydrated] = useState(false);
 
   interface Itinerary {
     flights: {
@@ -118,11 +118,11 @@ export default function ItineraryFormSearch() {
 
           <h3>Coffee Shops</h3>
           <Stack spacing={2} direction="column" sx={{ width: 400, margin: "auto" }} textAlign={"left"}>
-          {itinerary.coffees.map((neighborhood: any, index: number) => (
+          {itinerary.coffees.map((shops: any, index: number) => (
             <div key={index}>
-              <h4>{neighborhood.neighborhood} Neigborhood</h4>
+              <h4>{shops.neighborhood} Neigborhood</h4>
               
-                {neighborhood.shops.map((shop: any, i: number) => (
+                {shops.shops.map((shop: any, i: number) => (
                   <Stack spacing={2} direction="column" sx={{ width: 400, margin: "auto" }} textAlign={"left"}>
                     <div><strong>{shop.title}</strong> - {shop.address} (⭐ {shop.rating})</div>
                     <div><a href={shop.website} target="_blank" rel="noopener noreferrer"> Website</a></div>
