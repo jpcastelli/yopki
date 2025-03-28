@@ -36,7 +36,7 @@ async function getActivitiesDetailsByActivityAndDestination(destination: string,
 
     const details: Activity[] = [];
     parsedActivityDetails.forEach(detail => { 
-          if (detail.local_results.length > 0) {
+          if (detail.local_results?.length > 0) {
           const activity = detail.local_results[0];
           details.push({
           title: activity.title,
